@@ -2,6 +2,8 @@
 #include <vector>
 #include "Set.h"
 
+using namespace std;
+
 template <class T>
 int Set<T>::add(T item)
 {
@@ -37,7 +39,7 @@ int Set<T>::size()
 template <class T>
 bool Set<T>::findItem(T item)
 {
-    if (find(mElems.begin(), mElems.end(), item) != mElems.end())
+    if (find(set.begin(), set.end(), item) != set.end())
     {
         cout << "The item was found in this set!" << endl;
         return true;
