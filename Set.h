@@ -1,10 +1,9 @@
 #ifndef SET_H
 #define SET_H
-
 #include <vector>
+using namespace std;
 
 template <class T>
-
 class Set
 {
 public:
