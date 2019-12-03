@@ -7,11 +7,13 @@ template <class T>
 class Set
 {
 public:
+    Set();
     int add(T item);
     int remove(T item);
     int size();
     bool findItem(T item);
     T *getArray(T item);
+    void printSet();
 
 private:
     vector<T> set;

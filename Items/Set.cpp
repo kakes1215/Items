@@ -5,6 +5,12 @@
 using namespace std;
 
 template <class T>
+Set<T>::Set()
+{
+    set = { 0 }
+}
+
+template <class T>
 int Set<T>::add(T item)
 {
     if (find(set.begin(), set.end(), item) == set.end())
@@ -58,4 +64,18 @@ T *Set<T>::getArray(T item)
         newArray[i] = set[i];
     }
     return newArray;
+}
+
+template <class T>
+void Set<T>::printSet()
+{
+    cout << endl
+         << "Current Values" << endl;
+    for (int i = 0; i < size(); i++)
+    {
+        cout << endl
+             << "Item #" << i + 1 << ": " << set.at(i) << endl;
+    }
+    cout << endl
+         << "The size of the set is now " << size() << " items" << endl;
 }
