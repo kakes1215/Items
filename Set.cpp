@@ -10,6 +10,7 @@ Set<T>::Set()
     set = { 0 }
 }
 
+
 template <class T>
 int Set<T>::add(T item)
 {
@@ -79,3 +80,6 @@ void Set<T>::printSet()
     cout << endl
          << "The size of the set is now " << size() << " items" << endl;
 }
+
+template class Set<int>;
+template class Set<string>;

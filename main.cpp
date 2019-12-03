@@ -4,13 +4,15 @@
 using namespace std;
 
 int handleMenu();
+void checkIsInt(int& intValue);
 
 int main()
 {
+  handleMenu();
   int loopNum = 1;
   while (true)
   {
-    Set<int> intSet = Set<int>();
+    Set<int> intSet;
     int userChoice = handleMenu();
     if (loopNum > 1)
     {
@@ -23,44 +25,41 @@ int main()
       int value;
       cout << "Enter an integer to add: ";
       cin >> value;
-
-      while (!cin)
-      {
-        cout << "That was no integer! Please enter an integer: ";
-        cin.clear();
-        cin.ignore();
-        cin >> value;
-      }
-
+      checkIsInt(value);
+      intSet.add(value);
+      break;
+      
     case 2:
       int valueToRemove;
       cout << "Enter an integer to remove: ";
       cin >> valueToRemove;
+      checkIsInt(valueToRemove);
+      intSet.remove(valueToRemove);
+      break;
 
-      while (!cin)
+    case 3:
+      cout << "The size of the Set is: " << intSet.size() << endl;
+      break;
+
+    case 4:
+      int itemToFind;
+      cout << "Enter an Int to Find in the Set: ";
+      cin >> itemToFind;
+      checkIsInt(itemToFind);
+      intSet.findItem(itemToFind);
+      break;
+
+    case 5:
+      cout << "Printing Array...." << endl;
+      int *intArray = intSet.getArray();
+      for(int i = 0; i < intSet.size(); i++)
       {
-        cout << "That was no integer! Please enter an integer: ";
-        cin.clear();
-        cin.ignore();
-        cin >> value;
+        cout << "Array Item #" << i+1 << ": " << intArray[i] << endl;
       }
+      delete intArray;
+      break;
     }
   }
-  int userInt;
-
-  intSet = testInts.buildSet("Integer");
-  testInts.removeValue(intSet);
-  testInts.findItem(intSet);
-  int *intArray = intSet.getArray();
-  delete intArray;
-
-  //Test Doubles
-  //   Set<double> doubleSet = Set<double>();
-  //   doubleSet = testDoubles.buildSet("Double");
-  //   testDoubles.removeValue(doubleSet);
-  //   testDoubles.findItem(doubleSet);
-  //   double *doubleArray = doubleSet.getArray();
-  //   delete doubleArray;
 
   //   //Test Strings
   //   Test<string> testString = Test<string>();
@@ -76,7 +75,7 @@ int handleMenu()
 {
   int choice;
   cout << "\n ******** MENU ********** " << endl;
-  cout << "\n 1) Add an Item" << endl;
+  cout << "\n1) Add an Item" << endl;
   cout << "2) Remove an Item" << endl;
   cout << "3) Get the Size of the Set" << endl;
   cout << "4) Find Item in the Set" << endl;
@@ -86,13 +85,17 @@ int handleMenu()
   cout << "Enter your choice: ";
   cin >> choice;
 
+  checkIsInt(choice);
+  return choice;
+}
+
+void checkIsInt(int& intValue)
+{
   while (!cin)
   {
-    cout << "That was no integer! Please enter an integer: ";
+    cout << "Please enter an integer: ";
     cin.clear();
     cin.ignore();
-    cin >> choice;
+    cin >> intValue;
   }
-
-  return choice;
 }
