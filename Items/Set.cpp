@@ -56,7 +56,7 @@ bool Set<T>::findItem(T item)
 }
 
 template <class T>
-T *Set<T>::getArray(T item)
+T *Set<T>::getArray()
 {
     T *newArray = new T[set.size()];
     for (int i = 0; i < set.size(); ++i)

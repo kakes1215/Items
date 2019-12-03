@@ -12,7 +12,7 @@ public:
     int remove(T item);
     int size();
     bool findItem(T item);
-    T *getArray(T item);
+    T *getArray();
     void printSet();
 
 private:

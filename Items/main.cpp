@@ -27,4 +27,7 @@ int main()
   stringSet = testString.buildSet("String");
   testString.removeValue(stringSet);
   testString.findItem(stringSet);
+
+  int *intArray = intSet.getArray();
+  delete intArray;
 }
