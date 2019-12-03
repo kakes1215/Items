@@ -13,6 +13,8 @@ int main()
   intSet = testInts.buildSet("Integer");
   testInts.removeValue(intSet);
   testInts.findItem(intSet);
+  int *intArray = intSet.getArray();
+  delete intArray;
 
   //Test Doubles
   Test<double> testDoubles = Test<double>();
@@ -20,6 +22,8 @@ int main()
   doubleSet = testDoubles.buildSet("Double");
   testDoubles.removeValue(doubleSet);
   testDoubles.findItem(doubleSet);
+  double *doubleArray = doubleSet.getArray();
+  delete doubleArray;
 
   //Test Strings
   Test<string> testString = Test<string>();
@@ -27,7 +31,6 @@ int main()
   stringSet = testString.buildSet("String");
   testString.removeValue(stringSet);
   testString.findItem(stringSet);
-
-  int *intArray = intSet.getArray();
-  delete intArray;
+  string *stringArray = stringSet.getArray();
+  delete stringArray;
 }
